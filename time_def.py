@@ -11,7 +11,7 @@ def add_six_hour(hour, minute, meridian):
         elif (meridian.lower() == 'pm'):
             return f'{str(time_add)}:{minute} AM'
 
-# longify short date name
+# longify short day name
 def day_modify(day):
     if day == 'sat':
         return 'Saturday'
@@ -30,6 +30,7 @@ def day_modify(day):
     else:
         return day 
 
+# longify short date name
 def date_modify(date):
     month = date[-3:]
     if month == 'jan':
