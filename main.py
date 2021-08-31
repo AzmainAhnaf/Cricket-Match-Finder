@@ -43,5 +43,7 @@ for match in matches:
 
     # time
     time = time_def.add_six_hour(hour, minute, meridian)
+
+    print(day)
     print("------------------------------------------------------------------------------------\n")
 
