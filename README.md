@@ -1,8 +1,5 @@
 # Cricket Match Finder
 
-This console application is now in beta version which will fetch upcoming cricket matches of Bangladesh.
-
-## Feature to be added
-
-1. Adding other countries
-2. Saving the output in output.txt
+Will fetch the upcoming matches of a specific team. This will show tournament name,
+<br>
+match name, date, day and time. It has a little bug if the match is today or tomorrow.
