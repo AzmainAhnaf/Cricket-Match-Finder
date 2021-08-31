@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 from bs4.element import Declaration
 import requests
+import time_def
 
 html_text = requests.get('https://www.espncricinfo.com/team/bangladesh-25/match-schedule-fixtures').text
 
@@ -36,6 +37,11 @@ for match in matches:
     # tournament name
     tournament_name = (comma_splited_description[1])
 
-    print(time)
+    hour = time.split(':')[0]
+    minute = time.split(':')[1][:2]
+    meridian = time.split()[-1]
+
+    # time
+    time = time_def.add_six_hour(hour, minute, meridian)
     print("------------------------------------------------------------------------------------\n")
 
