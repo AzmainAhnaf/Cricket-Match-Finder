@@ -46,6 +46,7 @@ for match in matches:
     # time
     time = time_def.add_six_hour(hour, minute, meridian)
 
+    # output the result
     if (date.strip()[-2:] == 'am' or date.strip()[-2:] == 'pm'):
         print(f'Series --> {tournament_name.strip()}')
         print(f'Match  --> {match_name.strip()} --> {match_type.strip()}')
