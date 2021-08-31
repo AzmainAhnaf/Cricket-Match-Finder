@@ -14,11 +14,13 @@ for match in matches:
     date_time = match.find('div', class_ = 'status').span.text
     date_time = date_time.split(',')
     
-    # weekly day of the match
+    # day of the match
     day = date_time[0]
+    day = time_def.day_modify(day)
 
     # date of the match
     date = date_time[1]
+    date = time_def.date_modify(date)
 
     # time of the match
     time = date_time[-1]
@@ -44,6 +46,20 @@ for match in matches:
     # time
     time = time_def.add_six_hour(hour, minute, meridian)
 
-    print(day)
+    if (date.strip()[-2:] == 'am' or date.strip()[-2:] == 'pm'):
+        print(f'Series --> {tournament_name.strip()}')
+        print(f'Match  --> {match_name.strip()} --> {match_type.strip()}')
+        print(f'date   --> recent')
+        print(f'day    --> Today or tomorrow')
+        print(f'time   --> {time.strip()}')
+        print("------------------------------------------------------------------------------------\n")
+        continue
+    
+
+    print(f'Series --> {tournament_name.strip()}')
+    print(f'Match  --> {match_name.strip()} --> {match_type.strip()}')
+    print(f'date   --> {date.strip()}')
+    print(f'day    --> {day.strip()}')
+    print(f'time   --> {time.strip()}')
     print("------------------------------------------------------------------------------------\n")
 

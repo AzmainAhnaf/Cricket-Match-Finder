@@ -29,3 +29,32 @@ def day_modify(day):
         return 'Friday'
     else:
         return day 
+
+def date_modify(date):
+    month = date[-3:]
+    if month == 'jan':
+        return f'{date.split()[0]} January'
+    elif month == 'feb':
+        return f'{date.split()[0]} February'
+    elif month == 'mar':
+        return f'{date.split()[0]} March'
+    elif month == 'apr':
+        return f'{date.split()[0]} April'
+    elif month == 'may':
+        return f'{date.split()[0]} May'
+    elif month == 'jun':
+        return f'{date.split()[0]} June'
+    elif month == 'jul':
+        return f'{date.split()[0]} July'
+    elif month == 'aug':
+        return f'{date.split()[0]} August'
+    elif month == 'sep':
+        return f'{date.split()[0]} September'
+    elif month == 'oct':
+        return f'{date.split()[0]} October'
+    elif month == 'nov':
+        return f'{date.split()[0]} November'
+    elif month == 'dec':
+        return f'{date.split()[0]} December'
+    else:
+        return date
