@@ -1,73 +1,84 @@
-from bs4 import BeautifulSoup
-from bs4.element import Declaration
-import requests
-import time_def
-
-def match_find(link):
-
-    html_text = requests.get(link).text
-
-    soup = BeautifulSoup(html_text, 'lxml')
-
-    matches = soup.find_all('div', class_ = 'col-md-8 col-16')
-
-    for match in matches:
-        try:
-            # match date and match time
-            date_time = match.find('div', class_ = 'status').span.text
-            date_time = date_time.split(',')
-                
-            # day of the match
-            day = date_time[0]
-            day = time_def.day_modify(day)
-
-            # date of the match
-            date = date_time[1]
-            date = time_def.date_modify(date)
-
-            # time of the match
-            time = date_time[-1]
-                
-            description = match.find('div', class_ = 'description').text
-            comma_splited_description = description.split(',')
-                
-            # match vs
-            match_name = comma_splited_description[0][5:]
-                
-            match_type = comma_splited_description[2].split()
-                
-            # match type (e.g. ODI, T20I, 6th match etc)
-            match_type = (f"{match_type[0]} {match_type[1]}")
-
-            # tournament name
-            tournament_name = (comma_splited_description[1])
-
-            hour = time.split(':')[0]
-            minute = time.split(':')[1][:2]
-            meridian = time.split()[-1]
-
-            # time
-            time = time_def.add_six_hour(hour, minute, meridian)
-
-            # output the result
-            if (date.strip()[-2:] == 'am' or date.strip()[-2:] == 'pm'):
-                print(f'Series --> {tournament_name.strip()}')
-                print(f'Match  --> {match_name.strip()} --> {match_type.strip()}')
-                print(f'date   --> recent')
-                print(f'day    --> Today or tomorrow')
-                print(f'time   --> {time.strip()}')
-                print("------------------------------------------------------------------------------------\n")
-                continue
-                
-
-            print(f'Series --> {tournament_name.strip()}')
-            print(f'Match  --> {match_name.strip()} --> {match_type.strip()}')
-            print(f'date   --> {date.strip()}')
-            print(f'day    --> {day.strip()}')
-            print(f'time   --> {time.strip()}')
-            print("------------------------------------------------------------------------------------\n")
-        except IndexError:
-            continue
-            
-match_find('https://www.espncricinfo.com/team/bangladesh-25/match-schedule-fixtures')
-input()
+import find_match
+print("Press (Q) to exit the application")
+print("Press (A) for available country")
+available_country_list = ['Australia', 'Afghanistan', 'Bangladesh', 'Ireland', 'England', 'Namibia' 'India', 'Nepal', 'New Zealand', 'Netherlands', 'Pakistan', 'Oman', 'South Africa', 'Papua New Guinea', 'Sri Lanka', 'Scotland', 'West Indies', 'UAE', 'Zimbabwe', 'USA']
+while True:
+    inp = input("Country name (or user input) --> ")
+    inp = inp.lower()
+    if inp == 'q':
+        break
+    elif inp == 'a':
+        for country in available_country_list:
+            print(country)
+            print("---------------------------")
+    elif inp == 'australia':
+        print('\n')
+        find_match.match_find('https://www.espncricinfo.com/team/australia-2/match-schedule-fixtures')
+    elif inp == 'afghanistan':
+        print('\n')
+        find_match.match_find('https://www.espncricinfo.com/team/afghanistan-40/match-schedule-fixtures')
+    elif inp == 'bangladesh':
+        print('\n')
+        find_match.match_find('https://www.espncricinfo.com/team/bangladesh-25/match-schedule-fixtures')
+    elif inp == 'ireland':
+        print('\n')
+        find_match.match_find('https://www.espncricinfo.com/team/ireland-29/match-schedule-fixtures')
+    elif inp == 'england':
+        print('\n')
+        find_match.match_find('https://www.espncricinfo.com/team/england-1/match-schedule-fixtures')
+    elif inp == 'england':
+        print('\n')
+        find_match.match_find('https://www.espncricinfo.com/team/england-1/match-schedule-fixtures')
+    elif inp == 'namibia':
+        print('\n')
+        find_match.match_find('https://www.espncricinfo.com/team/namibia-28/match-schedule-fixtures')
+    elif inp == 'india':
+        print('\n')
+        find_match.match_find('https://www.espncricinfo.com/team/india-6/match-schedule-fixtures')
+    elif inp == 'india':
+        print('\n')
+        find_match.match_find('https://www.espncricinfo.com/team/india-6/match-schedule-fixtures')
+    elif inp == 'nepal':
+        print('\n')
+        find_match.match_find('https://www.espncricinfo.com/team/nepal-33/match-schedule-fixtures')
+    elif inp == 'new zealand':
+        print('\n')
+        find_match.match_find('https://www.espncricinfo.com/team/new-zealand-5/match-schedule-fixtures')
+    elif inp == 'netherlands':
+        print('\n')
+        find_match.match_find('https://www.espncricinfo.com/team/netherlands-15/match-schedule-fixtures')
+    elif inp == 'pakistan':
+        print('\n')
+        find_match.match_find('https://www.espncricinfo.com/team/pakistan-7/match-schedule-fixtures')
+    elif inp == 'oman':
+        print('\n')
+        find_match.match_find('https://www.espncricinfo.com/team/oman-37/match-schedule-fixtures')
+    elif inp == 'south africa':
+        print('\n')
+        find_match.match_find('https://www.espncricinfo.com/team/south-africa-3/match-schedule-fixtures')
+    elif inp == 'papua new guinea':
+        print('\n')
+        find_match.match_find('https://www.espncricinfo.com/team/papua-new-guinea-20/match-schedule-fixtures')
+    elif inp == 'sri lanka':
+        print('\n')
+        find_match.match_find('https://www.espncricinfo.com/team/sri-lanka-8/match-schedule-fixtures')
+    elif inp == 'scotland':
+        print('\n')
+        find_match.match_find('https://www.espncricinfo.com/team/scotland-30/match-schedule-fixtures')
+    elif inp == 'west indies':
+        print('\n')
+        find_match.match_find('https://www.espncricinfo.com/team/west-indies-4/match-schedule-fixtures')
+    elif inp == 'uae':
+        print('\n')
+        find_match.match_find('https://www.espncricinfo.com/team/united-arab-emirates-27/match-schedule-fixtures')
+    elif inp == 'zimbabwe':
+        print('\n')
+        find_match.match_find('https://www.espncricinfo.com/team/zimbabwe-9/match-schedule-fixtures')
+    elif inp == 'usa':
+        print('\n')
+        find_match.match_find('https://www.espncricinfo.com/team/united-states-of-america-11/match-schedule-fixtures')
+    elif inp == 'f':
+        print('\n')
+        print('Welcome to the F world')
+    else:
+        print(f'there is no country named {inp.title()}')
