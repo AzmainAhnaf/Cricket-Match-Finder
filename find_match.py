@@ -67,8 +67,5 @@ def match_find(link):
             print(f'time   --> {time.strip()}')
             print("------------------------------------------------------------------------------------\n")
         except IndexError:
-            print('This match is currently going')
-            print(f'Series --> {tournament_name.strip()}')
-            print(f'Match  --> {match_name.strip()} --> {match_type.strip()}')
             continue
 
