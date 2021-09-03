@@ -1,7 +1,7 @@
 import find_match
 print("Press (Q) to exit the application")
 print("Press (A) for available country")
-available_country_list = ['Australia', 'Afghanistan', 'Bangladesh', 'Ireland', 'England', 'Namibia' 'India', 'Nepal', 'New Zealand', 'Netherlands', 'Pakistan', 'Oman', 'South Africa', 'Papua New Guinea', 'Sri Lanka', 'Scotland', 'West Indies', 'UAE', 'Zimbabwe', 'USA']
+available_country_list = ['Australia', 'Afghanistan', 'Bangladesh', 'Ireland', 'England', 'Namibia', 'India', 'Nepal', 'New Zealand', 'Netherlands', 'Pakistan', 'Oman', 'South Africa', 'Papua New Guinea', 'Sri Lanka', 'Scotland', 'West Indies', 'UAE', 'Zimbabwe', 'USA']
 while True:
     inp = input("Country name (or user input) --> ")
     inp = inp.lower()
